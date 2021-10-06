@@ -43,8 +43,12 @@ public:
     int image_scale() const;
     void setImage_scale(int newImage_scale);
 
+    const QString &image_file_name() const;
+    void setImage_file_name(const QString &newImage_file_name);
+
 signals:
     void backgroundColorChanged();
+    void imageFileNameChanged(const QString &newImage_file_name);
     void imageChanged();
     void imageScaleChanged();
 

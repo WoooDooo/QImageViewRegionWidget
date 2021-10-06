@@ -21,6 +21,17 @@ QImageViewRegionWidget::QImageViewRegionWidget(QWidget *parent) : QWidget(parent
     connect(key_ctrl_asterisk_, SIGNAL(activated()), this, SLOT(slotZoomDefault()));
 }
 
+const QString &QImageViewRegionWidget::image_file_name() const
+{
+    return image_file_name_;
+}
+
+void QImageViewRegionWidget::setImage_file_name(const QString &newImage_file_name)
+{
+    image_file_name_ = newImage_file_name;
+    emit imageFileNameChanged(newImage_file_name);
+}
+
 int QImageViewRegionWidget::image_scale() const
 {
     delete key_ctrl_plus_;
@@ -113,7 +124,7 @@ void QImageViewRegionWidget::mouseDoubleClickEvent(QMouseEvent *event)
 
         if (!file_name.isEmpty())
         {
-            image_file_name_ = file_name;
+            setImage_file_name(file_name);
             setImage(QImage(file_name));
             image_default_rect_.setSize(image_.size());
             setImage_actual_rect(image_scale_);
