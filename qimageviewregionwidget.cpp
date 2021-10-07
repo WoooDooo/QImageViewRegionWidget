@@ -45,7 +45,7 @@ int QImageViewRegionWidget::image_scale() const
 void QImageViewRegionWidget::setImage_scale(int newImage_scale)
 {
     image_scale_ = newImage_scale;
-    emit imageScaleChanged(newImage_scale);
+    emit imageScaleChanged(QString::number(newImage_scale) + " %");
 }
 
 void QImageViewRegionWidget::setImage_actual_rect(const int scale)

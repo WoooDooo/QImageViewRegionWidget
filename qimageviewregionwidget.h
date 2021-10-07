@@ -50,7 +50,7 @@ signals:
     void backgroundColorChanged();
     void imageFileNameChanged(const QString &newImage_file_name);
     void imageChanged();
-    void imageScaleChanged(const int newImage_scale);
+    void imageScaleChanged(const QString &newImage_scale);
 
 public slots:
     void slotZoomIn();
