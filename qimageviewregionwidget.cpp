@@ -2,7 +2,8 @@
 
 QImageViewRegionWidget::QImageViewRegionWidget(QWidget *parent) : QWidget(parent)
 {
-    background_color_.setRgb(60, 30, 30);
+    background_color_.setRgb(30, 30, 30);
+
     image_scale_ = 100;
 
     connect(this, SIGNAL(backgroundColorChanged()), SLOT(repaint()));
@@ -44,7 +45,7 @@ int QImageViewRegionWidget::image_scale() const
 void QImageViewRegionWidget::setImage_scale(int newImage_scale)
 {
     image_scale_ = newImage_scale;
-    emit imageScaleChanged();
+    emit imageScaleChanged(newImage_scale);
 }
 
 void QImageViewRegionWidget::setImage_actual_rect(const int scale)
@@ -87,7 +88,7 @@ void QImageViewRegionWidget::setBackground_color(const QColor &newBackground_col
 
 void QImageViewRegionWidget::slotZoomIn()
 {
-    if(image_scale_ < 400)
+    if(image_scale_ < 500)
     {
         int image_scale = image_scale_ +  5;
         setImage_actual_rect(image_scale);
@@ -128,6 +129,7 @@ void QImageViewRegionWidget::mouseDoubleClickEvent(QMouseEvent *event)
             setImage(QImage(file_name));
             image_default_rect_.setSize(image_.size());
             setImage_actual_rect(image_scale_);
+            setImage_scale(image_scale_);
         }
     }
 }
