@@ -88,7 +88,7 @@ void QImageViewRegionWidget::setBackground_color(const QColor &newBackground_col
 
 void QImageViewRegionWidget::slotZoomIn()
 {
-    if(image_scale_ < 500)
+    if(image_scale_ < 500 && !image_.isNull())
     {
         int image_scale = image_scale_ +  5;
         setImage_actual_rect(image_scale);
@@ -98,7 +98,7 @@ void QImageViewRegionWidget::slotZoomIn()
 
 void QImageViewRegionWidget::slotZoomOut()
 {
-    if(image_scale_ > 25)
+    if(image_scale_ > 25 && !image_.isNull())
     {
         int image_scale = image_scale_ -  5;
         setImage_actual_rect(image_scale);
@@ -108,7 +108,7 @@ void QImageViewRegionWidget::slotZoomOut()
 
 void QImageViewRegionWidget::slotZoomDefault()
 {
-    if(image_scale_ != 100)
+    if(image_scale_ != 100 && !image_.isNull())
     {
         int image_scale = 100;
         setImage_actual_rect(image_scale);
