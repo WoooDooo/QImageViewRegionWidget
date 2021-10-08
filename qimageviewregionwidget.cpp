@@ -150,3 +150,16 @@ void QImageViewRegionWidget::paintEvent(QPaintEvent *event)
         painter.drawImage(image_actual_rect_, image_);
     }
 }
+
+
+void QImageViewRegionWidget::wheelEvent(QWheelEvent *event)
+{
+    if ((event->angleDelta().y() > 0))
+    {
+        slotZoomIn();
+    }
+    else if ((event->angleDelta().y() < 0))
+    {
+        slotZoomOut();
+    }
+}

@@ -61,6 +61,10 @@ public slots:
 protected:
     virtual void mouseDoubleClickEvent(QMouseEvent *event);
     virtual void paintEvent(QPaintEvent *event);
+
+    // QWidget interface
+protected:
+    virtual void wheelEvent(QWheelEvent *event);
 };
 
 #endif // QIMAGEVIEWREGIONWIDGET_H
